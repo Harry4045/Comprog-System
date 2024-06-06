@@ -19,36 +19,12 @@ import javax.swing.JTextField;
  *
  * @author ficti
  */
-public class og extends javax.swing.JFrame implements ActionListener {
+public class og extends javax.swing.JFrame {
     
-    String[] questions = {"Athens had _________ the other Greek city-states against the Persians." , 
-                        "Darius took drastic steps to ________ the rebellious Athenians." ,
-                        "Their participation _________ to the Athenians." , 
-                        "The people of Delos did not want to ______ the conquest of Greece." ,
-                        "The Athenians were _________ by some soldiers who arrived from Plataea."};
-
-    String[][] options = {
-                        {"A. intervened on behalf of\nB. wanted to fight\nC. refused help to"},
-                        {"A. help\nB. pursuade\nC. irritate"},
-                        {"A. gave trust\nB. gave strength\nC. gave honor"},
-                        {"A. end\nB. encourage\nC. think about"},
-                        {"A. comprehended\nB. strengthened\nC. compromised"},
-                        };
-
-    char[] answers = {
-                      'A' , 'C' , 'C' , 'B', 'B'
-                     };
-
-    char guess;
-    char answer;
-    int index;
-    int correct_guesses = 0;
-    int total_questions = questions.length;
-    int result;
-    int seconds = 10;
+   
 
     /**
-     * Creates new form og
+     * Creates new form 
      */
     public og() {
         initComponents();
@@ -64,201 +40,127 @@ public class og extends javax.swing.JFrame implements ActionListener {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        number_right = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textarea = new javax.swing.JTextArea();
         buttonB = new javax.swing.JButton();
-        buttonA = new javax.swing.JButton();
-        buttonD = new javax.swing.JButton();
-        buttonC = new javax.swing.JButton();
-        answer_labelB = new javax.swing.JLabel();
-        answer_labelA = new javax.swing.JLabel();
-        answer_labelC = new javax.swing.JLabel();
-        answer_labelD = new javax.swing.JLabel();
+        buttonB1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        buttonB2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(0, 0, 102));
 
-        number_right.setMargin(new java.awt.Insets(2, 6, 2, 0));
-        number_right.addActionListener(new java.awt.event.ActionListener() {
+        buttonB.setBackground(new java.awt.Color(0, 102, 204));
+        buttonB.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        buttonB.setForeground(new java.awt.Color(255, 255, 255));
+        buttonB.setText("Back");
+        buttonB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number_rightActionPerformed(evt);
+                buttonBActionPerformed(evt);
             }
         });
 
-        textarea.setColumns(20);
-        textarea.setRows(5);
-        textarea.setMargin(new java.awt.Insets(0, 6, 2, 6));
-        jScrollPane1.setViewportView(textarea);
-
-        buttonB.setText("B");
-
-        buttonA.setForeground(new java.awt.Color(255, 255, 255));
-        buttonA.setText("A");
-        buttonA.addActionListener(new java.awt.event.ActionListener() {
+        buttonB1.setBackground(new java.awt.Color(0, 102, 204));
+        buttonB1.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        buttonB1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonB1.setText("Level 1");
+        buttonB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAActionPerformed(evt);
+                buttonB1ActionPerformed(evt);
             }
         });
 
-        buttonD.setText("D");
+        jLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel1.setText("Select a Level");
 
-        buttonC.setText("C");
+        buttonB2.setBackground(new java.awt.Color(0, 102, 204));
+        buttonB2.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        buttonB2.setForeground(new java.awt.Color(255, 255, 255));
+        buttonB2.setText("Level 2");
+        buttonB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonB2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
             .addGroup(panelLayout.createSequentialGroup()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number_right, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonC, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(buttonA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(buttonB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(buttonD, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(answer_labelB, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(answer_labelA, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(answer_labelC, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(answer_labelD, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(345, 345, 345)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonB2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonB, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonB1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 77, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(number_right, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addComponent(buttonA, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                        .addComponent(answer_labelA)
-                        .addGap(20, 20, 20)))
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonB, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answer_labelB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonC, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answer_labelC))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answer_labelD))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(81, 81, 81)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(buttonB1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(buttonB2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addComponent(buttonB, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleName("frame");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonB1ActionPerformed
+        owm db = new owm();
+        db.show();
+        this.dispose();
+
+    }//GEN-LAST:event_buttonB1ActionPerformed
+
+    private void buttonBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBActionPerformed
+        test db = new test();
+        db.show();
+        this.dispose();
+    }//GEN-LAST:event_buttonBActionPerformed
+
+    private void buttonB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonB2ActionPerformed
+        owm2 db = new owm2();
+        db.show();
+        this.dispose();
+    }//GEN-LAST:event_buttonB2ActionPerformed
     public void nextQuestion(){
-        if(index>=total_questions){
-            results();
-        }
-        else{
-            number_right.setText("Question "+(index+1));
-            textarea.setText(questions[index]);
-            answer_labelA.setText(options[index][0]);
-            answer_labelB.setText(options[index][1]);
-            answer_labelC.setText(options[index][2]);
-            answer_labelD.setText(options[index][3]);
-        }
-    }
-    @Override
-    public void actionPerformed(ActionEvent e){
-        buttonA.setEnabled(false);
-        buttonB.setEnabled(false);
-        buttonC.setEnabled(false);
-        buttonD.setEnabled(false);
-        
-        if(e.getSource()==buttonA){
-            answer = 'A';
-            if(answer == answers[index]){
-                correct_guesses++;
-            }
-        }
-        if(e.getSource()==buttonB){
-            answer = 'B';
-            if(answer == answers[index]){
-                correct_guesses++;
-            }
-        }
-        if(e.getSource()==buttonC){
-            answer = 'C';
-            if(answer == answers[index]){
-                correct_guesses++;
-            }
-        }
-        if(e.getSource()==buttonD){
-            answer = 'D';
-            if(answer == answers[index]){
-                correct_guesses++;
-            }
-        }
-        results();
-
-    }
-    public void results(){
-        buttonA.setEnabled(false);
-        buttonB.setEnabled(false);
-        buttonC.setEnabled(false);
-        buttonD.setEnabled(false);
-        
-        result = (int)((correct_guesses/(double)total_questions)*100);
-        number_right.setText("RESULTS!");
-        textarea.setText("");
-        answer_labelA.setText("");
-        answer_labelB.setText("");
-        answer_labelC.setText("");
-        answer_labelD.setText("");
-        
-        number_right.setText("("+correct_guesses+"/"+total_questions+")");
-        
-        panel.add(number_right);
-    }
+       
     
-    
-    
-    private void buttonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAActionPerformed
-
-    private void number_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number_rightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_number_rightActionPerformed
-
     
     
     /**
      * @param args the command line arguments
      */
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -292,18 +194,11 @@ public class og extends javax.swing.JFrame implements ActionListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel answer_labelA;
-    private javax.swing.JLabel answer_labelB;
-    private javax.swing.JLabel answer_labelC;
-    private javax.swing.JLabel answer_labelD;
-    private javax.swing.JButton buttonA;
     private javax.swing.JButton buttonB;
-    private javax.swing.JButton buttonC;
-    private javax.swing.JButton buttonD;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField number_right;
+    private javax.swing.JButton buttonB1;
+    private javax.swing.JButton buttonB2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel;
-    private javax.swing.JTextArea textarea;
     // End of variables declaration//GEN-END:variables
 
     

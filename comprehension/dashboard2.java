@@ -23,24 +23,24 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 
-public class dashboard implements ActionListener{
+public class dashboard2 implements ActionListener{
 
-    String[] questions = {"Athens had _________ the other Greek city-states against the Persians." , 
-                        "Darius took drastic steps to ________ the rebellious Athenians." ,
-                        "Their participation _________ to the Athenians." , 
-                        "The people of Delos did not want to ______ the conquest of Greece." ,
-                        "The Athenians were _________ by some soldiers who arrived from Plataea."};
+    String[] questions = {"Some Russian peasants and workers ______ for social reform." , 
+                          "Witnesses ______ that all members of the czar’s family had been executed." ,
+                          "Tschaikovsky initially ______ any connection with the czar’s family." , 
+                          "She was unable to ______ the aid of her relatives." ,
+                          "In court she _________ maintaining that she was Anastasia and deserved her inheritance."};
 
     String[][] options = {
-                        {"A. intervened on behalf of", "B. wanted to fight", "C. refused help to","D. irritate"},
-                        {"A. help","B. pursuade","C. irritate","D. refused help to"},
-                        {"A. gave trust","B. gave strength","C. gave honor","D. refused help to"},
-                        {"A. end","B. encourage","C. think about","D. refused help to"},
-                        {"A. comprehended","B. strengthened","C. compromised","D. refused help to"},
+                        {"A. asked","B. cried out","C. were desperate","D. irritate"},
+                        {"A. thought","B. gave assurance","C. convinced some","D. gave honor"},
+                        {"A. denied","B. stopped","C. justified","D. think about"},
+                        {"A. noted","B. call upon","C. know","D. comprehended"},
+                        {"A. finally appeared","B. spoke forcefully","C. Answer not available","D. refused help to"},
                         };
 
     char[] answers = {
-                      'A' , 'C' , 'C' , 'B', 'B'
+                      'B' , 'B' , 'A' , 'B', 'B'
                      };
 
     char guess;
@@ -59,7 +59,6 @@ public class dashboard implements ActionListener{
     JButton buttonB = new JButton();
     JButton buttonC = new JButton();
     JButton buttonD = new JButton();
-    JButton buttonE = new JButton();
     JLabel answer_labelA = new JLabel();
     JLabel answer_labelB = new JLabel();
     JLabel answer_labelC = new JLabel();
@@ -81,7 +80,7 @@ public class dashboard implements ActionListener{
 			}
 		});
     
-    public dashboard(){
+    public dashboard2(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(750,850);
 		frame.getContentPane().setBackground(new Color(0,0,102));
@@ -128,12 +127,6 @@ public class dashboard implements ActionListener{
 		buttonD.setFocusable(false);
 		buttonD.addActionListener(this);
 		buttonD.setText("D");
-                
-                buttonE.setBounds(10,700,150,80);
-		buttonE.setFont(new Font("Showcard Gothic",Font.BOLD,30));
-		buttonE.setFocusable(false);
-		buttonE.addActionListener(this);
-		buttonE.setText("BACK");
 		
 		answer_labelA.setBounds(125,300,500,100);
 		answer_labelA.setBackground(new Color(50,50,50));
@@ -197,7 +190,6 @@ public class dashboard implements ActionListener{
 		frame.add(buttonB);
 		frame.add(buttonC);
 		frame.add(buttonD);
-                
 		frame.add(textarea);
 		frame.add(textfield);
 		frame.setVisible(true);
@@ -226,7 +218,6 @@ public class dashboard implements ActionListener{
 			buttonB.setEnabled(false);
 			buttonC.setEnabled(false);
 			buttonD.setEnabled(false);
-                        buttonE.setEnabled(false);
 			
 			if(e.getSource()==buttonA) {
 				answer= 'A';
@@ -252,7 +243,6 @@ public class dashboard implements ActionListener{
 					correct_guesses++;
 				}
 			}
-                        
 			displayAnswer();
 	}
 	public void displayAnswer() {
@@ -263,7 +253,6 @@ public class dashboard implements ActionListener{
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
-                buttonE.setEnabled(false);
 		
 		if(answers[index] != 'A')
 			answer_labelA.setForeground(new Color(255,0,0));
@@ -291,7 +280,6 @@ public class dashboard implements ActionListener{
 				buttonB.setEnabled(true);
 				buttonC.setEnabled(true);
 				buttonD.setEnabled(true);
-                                buttonE.setEnabled(true);
 				index++;
 				nextQuestion();
 			}
@@ -305,7 +293,6 @@ public class dashboard implements ActionListener{
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
-                buttonE.setEnabled(false);
 		
 		result = (int)((correct_guesses/(double)total_questions)*100);
 		
@@ -321,6 +308,7 @@ public class dashboard implements ActionListener{
                 
                 og o = new og();
                 o.show();
+                
 		
 		frame.add(number_right);
 		frame.add(percentage);
