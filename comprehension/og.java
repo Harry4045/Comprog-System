@@ -4,11 +4,48 @@
  */
 package com.mycompany.comprehension;
 
+import java.awt.Color;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 /**
  *
  * @author ficti
  */
-public class og extends javax.swing.JFrame {
+public class og extends javax.swing.JFrame implements ActionListener {
+    
+    String[] questions = {"Athens had _________ the other Greek city-states against the Persians." , 
+                        "Darius took drastic steps to ________ the rebellious Athenians." ,
+                        "Their participation _________ to the Athenians." , 
+                        "The people of Delos did not want to ______ the conquest of Greece." ,
+                        "The Athenians were _________ by some soldiers who arrived from Plataea."};
+
+    String[][] options = {
+                        {"A. intervened on behalf of\nB. wanted to fight\nC. refused help to"},
+                        {"A. help\nB. pursuade\nC. irritate"},
+                        {"A. gave trust\nB. gave strength\nC. gave honor"},
+                        {"A. end\nB. encourage\nC. think about"},
+                        {"A. comprehended\nB. strengthened\nC. compromised"},
+                        };
+
+    char[] answers = {
+                      'A' , 'C' , 'C' , 'B', 'B'
+                     };
+
+    char guess;
+    char answer;
+    int index;
+    int correct_guesses = 0;
+    int total_questions = questions.length;
+    int result;
+    int seconds = 10;
 
     /**
      * Creates new form og
@@ -26,73 +63,199 @@ public class og extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        panel = new javax.swing.JPanel();
+        number_right = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textarea = new javax.swing.JTextArea();
+        buttonB = new javax.swing.JButton();
+        buttonA = new javax.swing.JButton();
+        buttonD = new javax.swing.JButton();
+        buttonC = new javax.swing.JButton();
+        answer_labelB = new javax.swing.JLabel();
+        answer_labelA = new javax.swing.JLabel();
+        answer_labelC = new javax.swing.JLabel();
+        answer_labelD = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 102));
+        panel.setBackground(new java.awt.Color(0, 0, 102));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        number_right.setMargin(new java.awt.Insets(2, 6, 2, 0));
+        number_right.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                number_rightActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setBackground(new java.awt.Color(51, 51, 51));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("\"The victory of the small Greek democracy of Athens over the mighty Persian Empire in 490 B.C. is one of the most famous events in history. Darius, king of the Persian Empire, was furious because Athens had interceded for the other Greek city-states in revolt against Persian domination. In anger the king sent an enormous army to defeat Athens. He thought it would take drastic steps to pacify the rebellious part of the empire.\\n\" +\n\"\\n\" +\n\"Persia was ruled by one man. In Athens, however, all citizens helped to rule. Ennobled by this participation, Athenians were prepared to die for their city-state. Perhaps this was the secret of the remarkable victory at Marathon, which freed them from Persian rule. On their way to Marathon, the Persians tried to fool some Greek city-states by claiming to have come in peace. The frightened citizens of Delos refused to believe this. Not wanting to abet the conquest of Greece, they fled from their city and did not return until the Persians had left. They were wise, for the Persians next conquered the city of Eritrea and captured its people.\\n\" +\n\"\\n\" +\n\"Tiny Athens stood alone against Persia. The Athenian people went to their sanctuaries. There they prayed for deliverance. They asked their gods to expedite their victory. The Athenians refurbished their weapons and moved to the plain of Marathon, where their little band would meet the Persians. At the last moment, soldiers from Plataea reinforced the Athenian troops.\\n\" +\n\"\\n\" +\n\"The Athenian army attacked, and Greek citizens fought bravely. The power of the mighty Persians was offset by the love that the Athenians had for their city. Athenians defeated the Persians in both archery and hand combat. Greek soldiers seized Persian ships and burned them, and the Persians fled in terror. Herodotus, a famous historian, reports that 6,400 Persians died, compared to only 192 Athenians.\" , \n\"One of the most intriguing stories of the Russian Revolution concerns the identity of Anastasia, the youngest daughter of Czar Nicholas II. During his reign over Russia, the czar had planned to revoke many of the harsh laws established by previous czars. Some workers and peasants, however, clamored for more rapid social reform. In 1918, a group of these people known as Bolsheviks overthrew the government. On July 17 or 18, they murdered the czar and what was thought to be his entire family.\\n\" +\n\"\\n\" +\n\"Although witnesses vouched that all the members of the czar’s family had been executed, there were rumors suggesting that Anastasia had survived. Over the years, a number of women claimed to be Grand Duchess Anastasia. Perhaps the most famous claimant was Anastasia Tschaikovsky, who was also known as Anna Anderson.\\n\" +\n\"\\n\" +\n\"In 1920, 18 months after the czar’s execution, this terrified young woman was rescued from drowning in a Berlin river. She spent two years in a hospital, where she attempted to reclaim her health and shattered mind. The doctors and nurses thought that she resembled Anastasia and questioned her about her background. She disclaimed any connection with the czar’s family. Eight years later, however, she claimed that she was Anastasia. She said that she had been rescued by two Russian soldiers after the czar and the rest of her family had been killed. Two brothers named Tschaikovsky had carried her into Romania. She had married one of the brothers, who had taken her to Berlin and left her there, penniless and without a vocation. Unable to invoke the aid of her mother’s family in Germany, she had tried to drown herself.\\n\" +\n\"\\n\" +\n\"During the next few years, scores of the czar’s relatives, ex-servants, and acquaintances interviewed her. Many of these people said that her looks and mannerisms were evocative of the Anastasia that they had known. Her grandmother and other relatives denied that she was the real Anastasia, however.\\n\" +\n\"\\n\" +\n\"Tired of being accused of fraud, Anastasia immigrated to the United States in 1928 and took the name Anna Anderson. She still wished to prove that she was Anastasia, though, and returned to Germany in 1933 to bring suit against her mother’s family. There she declaimed to the court, asserting that she was indeed Anastasia and deserved her inheritance.\\n\" +\n\"\\n\" +\n\"In 1957, the court decided that it could neither confirm nor deny Anastasia’s identity. Although it will probably never be known whether this woman was the Grand Duchess Anastasia, her search to establish her identity has been the subject of numerous books, plays, and movies.\"");
-        jScrollPane1.setViewportView(jTextArea1);
+        textarea.setColumns(20);
+        textarea.setRows(5);
+        textarea.setMargin(new java.awt.Insets(0, 6, 2, 6));
+        jScrollPane1.setViewportView(textarea);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+        buttonB.setText("B");
+
+        buttonA.setForeground(new java.awt.Color(255, 255, 255));
+        buttonA.setText("A");
+        buttonA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAActionPerformed(evt);
+            }
+        });
+
+        buttonD.setText("D");
+
+        buttonC.setText("C");
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(number_right, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(buttonC, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(buttonA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonD, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(answer_labelB, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(answer_labelA, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(answer_labelC, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(answer_labelD, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(345, 345, 345)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(number_right, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addComponent(buttonA, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                        .addComponent(answer_labelA)
+                        .addGap(20, 20, 20)))
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonB, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(answer_labelB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonC, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(answer_labelC))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(answer_labelD))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        getAccessibleContext().setAccessibleName("frame");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void nextQuestion(){
+        if(index>=total_questions){
+            results();
+        }
+        else{
+            number_right.setText("Question "+(index+1));
+            textarea.setText(questions[index]);
+            answer_labelA.setText(options[index][0]);
+            answer_labelB.setText(options[index][1]);
+            answer_labelC.setText(options[index][2]);
+            answer_labelD.setText(options[index][3]);
+        }
+    }
+    @Override
+    public void actionPerformed(ActionEvent e){
+        buttonA.setEnabled(false);
+        buttonB.setEnabled(false);
+        buttonC.setEnabled(false);
+        buttonD.setEnabled(false);
+        
+        if(e.getSource()==buttonA){
+            answer = 'A';
+            if(answer == answers[index]){
+                correct_guesses++;
+            }
+        }
+        if(e.getSource()==buttonB){
+            answer = 'B';
+            if(answer == answers[index]){
+                correct_guesses++;
+            }
+        }
+        if(e.getSource()==buttonC){
+            answer = 'C';
+            if(answer == answers[index]){
+                correct_guesses++;
+            }
+        }
+        if(e.getSource()==buttonD){
+            answer = 'D';
+            if(answer == answers[index]){
+                correct_guesses++;
+            }
+        }
+        results();
 
+    }
+    public void results(){
+        buttonA.setEnabled(false);
+        buttonB.setEnabled(false);
+        buttonC.setEnabled(false);
+        buttonD.setEnabled(false);
+        
+        result = (int)((correct_guesses/(double)total_questions)*100);
+        number_right.setText("RESULTS!");
+        textarea.setText("");
+        answer_labelA.setText("");
+        answer_labelB.setText("");
+        answer_labelC.setText("");
+        answer_labelD.setText("");
+        
+        number_right.setText("("+correct_guesses+"/"+total_questions+")");
+        
+        panel.add(number_right);
+    }
+    
+    
+    
+    private void buttonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAActionPerformed
+
+    private void number_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number_rightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_number_rightActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -110,27 +273,39 @@ public class og extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(owm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(og.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(owm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(og.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(owm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(og.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(owm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(og.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new owm().setVisible(true);
+                new og().setVisible(true);
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel answer_labelA;
+    private javax.swing.JLabel answer_labelB;
+    private javax.swing.JLabel answer_labelC;
+    private javax.swing.JLabel answer_labelD;
+    private javax.swing.JButton buttonA;
+    private javax.swing.JButton buttonB;
+    private javax.swing.JButton buttonC;
+    private javax.swing.JButton buttonD;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField number_right;
+    private javax.swing.JPanel panel;
+    private javax.swing.JTextArea textarea;
     // End of variables declaration//GEN-END:variables
+
+    
+    
 }

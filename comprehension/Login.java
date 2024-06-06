@@ -155,7 +155,7 @@ public class Login extends javax.swing.JFrame {
         String password = txtpword.getText();
         try {
 
-            FileReader fr = new FileReader("C:\\Users\\harry\\Downloads\\Comprog-System-main\\Comprog-System-main\\comprehension\\words.txt");
+            FileReader fr = new FileReader("C:\\Users\\ficti\\OneDrive\\Documents\\NetBeansProjects\\comprehension\\src\\main\\java\\com\\mycompany\\comprehension\\words.txt");
             Scanner sc = new Scanner(fr);
             sc.useDelimiter("[,\n]");
 

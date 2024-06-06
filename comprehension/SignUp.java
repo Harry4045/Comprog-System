@@ -166,7 +166,7 @@ public class SignUp extends javax.swing.JFrame {
         String pword = txtpassword.getText();
 
         try {
-            FileWriter writer = new FileWriter("C:\\Users\\harry\\Downloads\\Comprog-System-main\\Comprog-System-main\\comprehension\\words.txt", true);
+            FileWriter writer = new FileWriter("C:\\Users\\ficti\\OneDrive\\Documents\\NetBeansProjects\\comprehension\\src\\main\\java\\com\\mycompany\\comprehension\\words.txt", true);
             writer.write(""+email+","+pword);
             writer.write(System.getProperty("line.separator"));
             writer.close();
