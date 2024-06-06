@@ -82,7 +82,7 @@ public class dashboard implements ActionListener{
     
     public dashboard(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(650,650);
+		frame.setSize(650,750);
 		frame.getContentPane().setBackground(new Color(0,0,102));
 		frame.setLayout(null);
 		frame.setResizable(false);
