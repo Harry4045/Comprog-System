@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel3">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="0" red="0" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="83" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                  <Component id="jButton4" min="-2" pref="468" max="-2" attributes="0"/>
+                  <EmptySpace pref="276" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton4" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="526" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="33" red="33" type="rgb"/>
+                    </Property>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="text" type="java.lang.String" value="&quot;The victory of the small Greek democracy of Athens over the mighty Persian Empire in 490 B.C. is one of the &#xa;most famous events in history. Darius, king of the Persian Empire, was furious &#xa;because Athens had interceded for the other Greek city-states in revolt against Persian domination. In anger the &#xa;king sent an enormous army to defeat Athens. He thought it would take drastic steps to pacify the rebellious &#xa;part of the empire.&#xa;&#xa;&quot;Persia was ruled by one man. In Athens, however, all citizens helped to rule. Ennobled by this participation, &#xa;Athenians were prepared to die for their city-state. Perhaps this was the secret of the remarkable victory at &#xa;Marathon, which freed them from Persian rule. On their way to Marathon, the Persians tried to fool some Greek &#xa;city-states by claiming to have come in peace. The frightened citizens of Delos refused to believe this. Not &#xa;wanting to abet the conquest of Greece, they fled from their city and did not return until the Persians had left. &#xa;They were wise, for the Persians next conquered the city of Eritrea and captured its people.&#xa;&#xa;&quot;Tiny Athens stood alone against Persia. The Athenian people went to their sanctuaries. There they prayed for &#xa;deliverance. They asked their gods to expedite their victory. The Athenians refurbished their weapons and &#xa;moved to the plain of Marathon, where their little band would meet the Persians. At the last moment, soldiers &#xa;from Plataea reinforced the Athenian troops.&quot;&#xa;&#xa;&quot;The Athenian army attacked, and Greek citizens fought bravely. The power of the mighty Persians was offset by &#xa;the love that the Athenians had for their city. Athenians defeated the Persians in both archery and hand combat. &#xa;Greek soldiers seized Persian ships and burned them, and the Persians fled in terror. Herodotus, a famous &#xa;historian, reports that 6,400 Persians&#xa;died, compared to only 192 Athenians.&quot;&#xa;&quot;One of the most intriguing stories of the Russian Revolution concerns the identity of Anastasia, the youngest daughter of &#xa;Czar Nicholas II. During his reign over Russia, the czar had planned to revoke many of the harsh laws established by previous &#xa;czars. Some workers and peasants, however, clamored for more rapid social reform. In 1918, a group of these people &#xa;known as Bolsheviks overthrew the government. On July 17 or 18, they murdered the czar and what was thought to be his &#xa;entire family.&quot;&#xa;&#xa;&quot;Although witnesses vouched that all the members of the czar&#x2019;s family had been executed, there were rumors suggesting that &#xa;Anastasia had survived. Over the years, a number of women claimed to be Grand Duchess Anastasia. Perhaps the most famous &#xa;claimant was Anastasia Tschaikovsky, who was also known as Anna Anderson.&#xa;&#xa;&quot;In 1920, 18 months after the czar&#x2019;s execution, this terrified young woman was rescued from drowning in a Berlin river. She spent &#xa;two years in a hospital, where she attempted to reclaim her health and shattered mind. The doctors and nurses thought that she &#xa;resembled Anastasia and questioned her about her background. She disclaimed any connection with the czar&#x2019;s family. &#xa;Eight years later, however, she claimed that she was Anastasia. She said that she had been rescued by two Russian soldiers after &#xa;the czar and the rest of her family had been killed. Two brothers named Tschaikovsky had carried her into Romania. She had married &#xa;one of the brothers, who had taken her to Berlin and left her there, penniless and without a vocation. Unable to invoke the aid of her &#xa;mother&#x2019;s family in Germany, she had tried to drown herself.&#xa;&#xa;&quot;During the next few years, scores of the czar&#x2019;s relatives, ex-servants, and acquaintances interviewed her. Many of these people said &#xa;that her looks and mannerisms were evocative of the Anastasia that they had known. Her grandmother and other relatives denied that &#xa;she was the real Anastasia, however. Tired of being accused of fraud, Anastasia immigrated to the United States in 1928 and took the &#xa;name Anna Anderson. She still wished to prove that she was Anastasia, though, and returned to Germany in 1933 to bring suit against&#xa;her mother&#x2019;s family. There she declaimed to the court, asserting that she was indeed Anastasia and deserved her inheritance.&quot;&#xa;&#xa;&quot;In 1957, the court decided that it could neither confirm nor deny Anastasia&#x2019;s identity. Although it will probably never be known&#xa;whether this woman was the Grand Duchess Anastasia, her search to establish her identity has been the subject of numerous books, plays, and &#xa;movies.&quot;"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="jButton4">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Continue"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Back"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

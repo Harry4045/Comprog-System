@@ -1,0 +1,4 @@
+Player: 20%
+Player: 40%
+Player: 20%
+Player: 20%
